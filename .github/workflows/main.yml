@@ -60,7 +60,7 @@ jobs:
 
       - name: Get Tweak Version
         run: |
-          echo "YTMU_VERSION=$(grep '^Version:' main/control | awk '{print $2}')" >> $GITHUB_ENV
+          echo "YTMU_VERSION=$(grep '^PACKAGE_VERSION' main/Makefile | awk -F' = ' '{print $2}')" >> $GITHUB_ENV
 
       - name: Install Dependencies
         run: brew install make ldid
